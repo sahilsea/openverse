@@ -10,7 +10,8 @@
         id="main-image"
         :src="imageSrc"
         :alt="image.title"
-        class="mx-auto h-full max-h-[500px] w-full rounded-se-sm rounded-ss-sm object-contain"
+        class="mx-auto max-h-[500px] rounded-se-sm rounded-ss-sm object-contain"
+        :class="isLoadingMainImage ? 'h-auto w-auto' : 'h-full w-full'"
         :width="imageWidth"
         :height="imageHeight"
         @load="onImageLoaded"
@@ -244,6 +245,8 @@ export default defineComponent({
       imageHeight,
       imageSrc,
       imageType,
+      isLoadingMainImage,
+
       sketchFabfailure,
       sketchFabUid,
       onImageLoaded,
