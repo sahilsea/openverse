@@ -2,7 +2,6 @@ import { defineStore } from "pinia"
 import { ssrRef } from "@nuxtjs/composition-api"
 
 import { capitalCase } from "~/utils/case"
-import { env } from "~/utils/env"
 import { parseFetchingError } from "~/utils/errors"
 import {
   AUDIO,
@@ -48,7 +47,7 @@ const sortProviders = (data: MediaProvider[]): MediaProvider[] => {
  */
 const lastUpdated: Ref<Date | null> = ssrRef(null)
 
-const updateFrequency = parseInt(env.providerUpdateFrequency, 10)
+const updateFrequency = 60 * 60 * 1000 // 1 hour
 
 export const useProviderStore = defineStore("provider", {
   state: (): ProviderState => ({

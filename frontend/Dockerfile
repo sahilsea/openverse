@@ -43,7 +43,7 @@ ENV NUXT_TELEMETRY_DISABLED=1
 ENV NODE_ENV=production
 ENV SENTRY_DSN=https://b6466b74788a4a2f8a7912eea912beb7@o787041.ingest.sentry.io/5799642
 
-ARG API_URL
+ENV NUXT_PUBLIC_API_URL=https://api.openverse.engineering/
 
 RUN pnpm build:only
 

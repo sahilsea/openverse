@@ -94,7 +94,7 @@ export interface ApiService {
 }
 
 export const createApiService = ({
-  baseUrl = process.env.apiUrl,
+  baseUrl = process.env.NUXT_PUBLIC_API_BASE_URL,
   accessToken = undefined,
   isVersioned = true,
 }: ApiServiceConfig = {}): ApiService => {

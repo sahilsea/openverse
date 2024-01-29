@@ -3,13 +3,6 @@ import { config } from "@vue/test-utils"
 
 import VueI18n from "vue-i18n"
 
-import { env } from "~/utils/env"
-
-// Attach nuxt config to process
-for (const [key, value] of Object.entries(env)) {
-  process.env[key] = value
-}
-
 Vue.config.productionTip = false
 Vue.config.devtools = false
 Vue.use(VueI18n)

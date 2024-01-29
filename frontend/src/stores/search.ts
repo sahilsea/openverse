@@ -2,7 +2,6 @@ import { defineStore } from "pinia"
 
 import { useStorage } from "@vueuse/core"
 
-import { env } from "~/utils/env"
 import { deepClone } from "~/utils/clone"
 import type { DeepWriteable } from "~/types/utils"
 
@@ -326,7 +325,7 @@ export const useSearchStore = defineStore("search", {
       this.recentSearches = [
         search,
         ...this.recentSearches.filter((i) => i !== search),
-      ].slice(0, parseInt(env.savedSearchCount))
+      ].slice(0, 4)
     },
     clearRecentSearches() {
       this.recentSearches = []

@@ -2,8 +2,6 @@ import { nextTick } from "vue"
 
 import { setActivePinia, createPinia } from "~~/test/unit/test-utils/pinia"
 
-import { env } from "~/utils/env"
-
 import { filterData, mediaFilterKeys } from "~/constants/filters"
 import {
   ALL_MEDIA,
@@ -550,7 +548,7 @@ describe("Search Store", () => {
           "bar",
         ])
         expect(searchStore.recentSearches.length).toEqual(
-          parseInt(env.savedSearchCount)
+          parseInt(4) // env.savedSearchCount
         )
       })
       it("can be cleared", () => {

@@ -9,7 +9,6 @@ import { VIEWPORTS } from "./src/constants/screens"
 
 import { isProd } from "./src/utils/node-env"
 import { sentryConfig } from "./src/utils/sentry-config"
-import { env } from "./src/utils/env"
 
 import type http from "http"
 
@@ -24,6 +23,9 @@ if (process.env.NODE_ENV === "production") {
     content: "upgrade-insecure-requests",
   })
 }
+
+const apiBaseUrl =
+  process.env.NUXT_PUBLIC_API_BASE_URL || "https://api.openverse.engineering/"
 
 const favicons = [
   // SVG favicon
@@ -52,12 +54,12 @@ const head = {
     ...favicons,
     {
       rel: "preconnect",
-      href: env.apiUrl,
+      href: apiBaseUrl,
       crossorigin: "",
     },
     {
       rel: "dns-prefetch",
-      href: env.apiUrl,
+      href: apiBaseUrl,
     },
     {
       rel: "search",
@@ -145,7 +147,6 @@ const config: NuxtConfig = {
   ],
   css: ["~/assets/fonts.css", "~/styles/tailwind.css", "~/styles/accent.css"],
   head,
-  env, // TODO: Replace with `publicRuntimeConfig`
   privateRuntimeConfig: {
     apiClientId: process.env.API_CLIENT_ID,
     apiClientSecret: process.env.API_CLIENT_SECRET,
@@ -308,6 +309,7 @@ const config: NuxtConfig = {
     trackLocalhost: !isProdNotPlaywright,
   },
   publicRuntimeConfig: {
+    apiBaseUrl: apiBaseUrl,
     plausible: {
       // This is the current domain of the site.
       domain:
