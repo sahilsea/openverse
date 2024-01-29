@@ -132,7 +132,12 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, useMeta } from "@nuxtjs/composition-api"
+import {
+  defineComponent,
+  useContext,
+  useFetch,
+  useMeta,
+} from "@nuxtjs/composition-api"
 
 import { useI18n } from "~/composables/use-i18n"
 
@@ -151,6 +156,13 @@ export default defineComponent({
         openverse: "Openverse",
       })} | Openverse`,
       meta: [{ hid: "robots", name: "robots", content: "all" }],
+    })
+
+    const { app } = useContext()
+
+    useFetch(async () => {
+      const providers = await app.$api.mediaProviders.getStats()
+      console.log(providers)
     })
   },
   head: {},
