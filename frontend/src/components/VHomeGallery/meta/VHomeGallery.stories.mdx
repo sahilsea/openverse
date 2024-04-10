@@ -13,7 +13,6 @@ import VHomeGallery from "@/components/VHomeGallery/VHomeGallery.vue"
   component={VHomeGallery}
   argTypes={{
     set: {
-      defaultValue: "random",
       options: ["random", "olympics", "pottery", "universe"],
       control: "select",
     },
@@ -35,5 +34,7 @@ export const Template = (args) => ({
 <ArgsTable of={VHomeGallery} />
 
 <Canvas>
-  <Story name="Default">{Template.bind({})}</Story>
+  <Story name="Default" args={{ set: "random" }}>
+    {Template.bind({})}
+  </Story>
 </Canvas>

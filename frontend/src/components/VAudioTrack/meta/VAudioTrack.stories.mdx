@@ -20,17 +20,14 @@ import wavWaveform from "./wav-waveform.json"
   component={VAudioTrack}
   argTypes={{
     format: {
-      defaultValue: "mp3",
       options: ["mp3", "ogg", "flac", "wav"],
       control: "select",
     },
     layout: {
-      defaultValue: "full",
       options: audioLayouts,
       control: "select",
     },
     size: {
-      defaultValue: "m",
       options: audioSizes,
       control: "select",
     },
@@ -107,19 +104,18 @@ export const Template = (args) => ({
 The component can be rendered in a multiple different layouts, by specifying a
 `layout`. The layout can further be customised by the `size` prop.
 
-### Full (default)
+### Full
 
-#### Size M (default)
+#### Size M
 
 <Canvas>
   <Story
     name="Full (medium)"
-    args={
-      {
-        // layout: 'full', (default)
-        // size: 'm', (default)
-      }
-    }
+    args={{
+      layout: "full",
+      size: "m",
+      format: "mp3",
+    }}
   >
     {Template.bind({})}
   </Story>
@@ -131,8 +127,9 @@ The component can be rendered in a multiple different layouts, by specifying a
   <Story
     name="Full (small)"
     args={{
-      // layout: 'full', (default)
+      layout: "full",
       size: "s",
+      format: "mp3",
     }}
     parameters={{
       viewport: { defaultViewport: "sm" },
@@ -152,6 +149,7 @@ The component can be rendered in a multiple different layouts, by specifying a
     args={{
       layout: "row",
       size: "l",
+      format: "mp3",
     }}
   >
     {Template.bind({})}
@@ -165,7 +163,8 @@ The component can be rendered in a multiple different layouts, by specifying a
     name="Row (medium)"
     args={{
       layout: "row",
-      // size: 'm', (default)
+      size: "m",
+      format: "mp3",
     }}
   >
     {Template.bind({})}
@@ -180,6 +179,7 @@ The component can be rendered in a multiple different layouts, by specifying a
     args={{
       layout: "row",
       size: "s",
+      format: "mp3",
     }}
     parameters={{
       viewport: { defaultViewport: "sm" },
@@ -201,6 +201,7 @@ There is no M size in box layout.
     args={{
       layout: "box",
       size: "l",
+      format: "mp3",
     }}
   >
     {Template.bind({})}
@@ -210,6 +211,7 @@ There is no M size in box layout.
     args={{
       layout: "box",
       size: "l",
+      format: "mp3",
     }}
   >
     {Template.bind({})}
@@ -224,6 +226,7 @@ There is no M size in box layout.
     args={{
       layout: "box",
       size: "s",
+      format: "mp3",
     }}
     parameters={{
       viewport: { defaultViewport: "sm" },
@@ -243,6 +246,8 @@ across pages when navigating.
     name="Global"
     args={{
       layout: "global",
+      size: "m",
+      format: "mp3",
     }}
     parameters={{
       viewport: { defaultViewport: "sm" },
