@@ -31,7 +31,7 @@ export const checkboxArgTypes = {
 }
 
 export const Template = (args) => ({
-  template: `<VCheckbox v-bind="args" v-on="args" class="mb-4">Code is Poetry</VCheckbox>`,
+  template: `<VCheckbox v-bind="args" v-on="args" class="mb-4">{{ args.name }}</VCheckbox>`,
   components: { VCheckbox },
   setup() {
     return { args }
@@ -51,7 +51,7 @@ export const Template = (args) => ({
     name="Default"
     args={{
       id: "default",
-      name: "storybook",
+      name: "Code is Poetry",
       value: "codeIsPoetry",
       checked: true,
     }}
@@ -71,7 +71,7 @@ between an on/off decision.
     name="Switch"
     args={{
       id: "default",
-      name: "storybook",
+      name: "Code is Poetry",
       value: "codeIsPoetry",
       isSwitch: true,
       checked: false,
@@ -106,7 +106,7 @@ render.
     name="License Checkbox"
     args={{
       id: "cc-by",
-      name: "license",
+      name: "License",
       value: "cc-by",
       checked: true,
     }}
